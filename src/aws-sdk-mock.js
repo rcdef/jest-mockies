@@ -1,25 +1,16 @@
+import mockDynamoDB from './dynamodb';
+
 const mockSignUp = jest.fn();
 const mockAdminConfirmSignUp = jest.fn();
 const mockAdminGetUser = jest.fn();
 const mockAdminInitiateAuth = jest.fn();
-const mockPut = jest.fn();
 
 export default {
+  ...mockDynamoDB,
   mockSignUp,
   mockAdminConfirmSignUp,
   mockAdminGetUser,
   mockAdminInitiateAuth,
-  mockPut,
-
-  DynamoDB: {
-    DocumentClient: class {
-      put(params) {
-        return {
-          promise: () => mockPut(params)
-        };
-      }
-    }
-  },
 
   CognitoIdentityServiceProvider: class {
     signUp(params) {
