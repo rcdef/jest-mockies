@@ -5,91 +5,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _cognitoIsp = _interopRequireDefault(require("./cognito-isp"));
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+var _dynamodb = _interopRequireDefault(require("./dynamodb"));
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mockSignUp = jest.fn();
-var mockAdminConfirmSignUp = jest.fn();
-var mockAdminGetUser = jest.fn();
-var mockAdminInitiateAuth = jest.fn();
-var mockPut = jest.fn();
-var _default = {
-  mockSignUp: mockSignUp,
-  mockAdminConfirmSignUp: mockAdminConfirmSignUp,
-  mockAdminGetUser: mockAdminGetUser,
-  mockAdminInitiateAuth: mockAdminInitiateAuth,
-  mockPut: mockPut,
-  DynamoDB: {
-    DocumentClient:
-    /*#__PURE__*/
-    function () {
-      function DocumentClient() {
-        _classCallCheck(this, DocumentClient);
-      }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
-      _createClass(DocumentClient, [{
-        key: "put",
-        value: function put(params) {
-          return {
-            promise: function promise() {
-              return mockPut(params);
-            }
-          };
-        }
-      }]);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-      return DocumentClient;
-    }()
-  },
-  CognitoIdentityServiceProvider:
-  /*#__PURE__*/
-  function () {
-    function CognitoIdentityServiceProvider() {
-      _classCallCheck(this, CognitoIdentityServiceProvider);
-    }
+var _default = _objectSpread({}, _cognitoIsp.default, _dynamodb.default);
 
-    _createClass(CognitoIdentityServiceProvider, [{
-      key: "signUp",
-      value: function signUp(params) {
-        return {
-          promise: function promise() {
-            return mockSignUp(params);
-          }
-        };
-      }
-    }, {
-      key: "adminConfirmSignUp",
-      value: function adminConfirmSignUp(params) {
-        return {
-          promise: function promise() {
-            return mockAdminConfirmSignUp(params);
-          }
-        };
-      }
-    }, {
-      key: "adminGetUser",
-      value: function adminGetUser(params) {
-        return {
-          promise: function promise() {
-            return mockAdminGetUser(params);
-          }
-        };
-      }
-    }, {
-      key: "adminInitiateAuth",
-      value: function adminInitiateAuth(params) {
-        return {
-          promise: function promise() {
-            return mockAdminInitiateAuth(params);
-          }
-        };
-      }
-    }]);
-
-    return CognitoIdentityServiceProvider;
-  }()
-};
 exports.default = _default;
