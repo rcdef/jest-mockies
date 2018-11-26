@@ -1,0 +1,17 @@
+{
+  "name": "jest-mockies",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "standard-version": "^4.4.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "build": "babel ./src -d ./dist",
+    "release": "standard-version"
+  }
+}
