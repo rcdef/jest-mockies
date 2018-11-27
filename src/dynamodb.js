@@ -8,39 +8,45 @@ const mockScan = jest.fn();
 const mockUpdate = jest.fn();
 
 export default {
-  mockPut,
-  mockBatchWrite,
-  mockDelete,
-  mockGet,
-  mockPut,
-  mockQuery,
-  mockScan,
-  mockUpdate,
+  Mock: {
+    DynamoDB: {
+      DocumentClient: {
+        batchGet: mockBatchGet,
+        batchWrite: mockBatchWrite,
+        delete: mockDelete,
+        get: mockGet,
+        put: mockPut,
+        query: mockQuery,
+        scan: mockScan,
+        update: mockUpdate
+      }
+    }
+  },
 
   DynamoDB: {
     DocumentClient: class {
       batchGet(params) {
         return {
           promise: () => mockBatchGet(params)
-        }
+        };
       }
 
       batchWrite(params) {
         return {
           promise: () => mockBatchWrite(params)
-        }
+        };
       }
 
       delete(params) {
         return {
           promise: () => mockDelete(params)
-        }
+        };
       }
 
       get(params) {
         return {
           promise: () => mockGet(params)
-        }
+        };
       }
 
       put(params) {
@@ -52,20 +58,20 @@ export default {
       query(params) {
         return {
           promise: () => mockQuery(params)
-        }
+        };
       }
 
       scan(params) {
         return {
           promise: () => mockScan(params)
-        }
+        };
       }
 
       update(params) {
         return {
           promise: () => mockUpdate(params)
-        }
+        };
       }
     }
   }
-}
+};
