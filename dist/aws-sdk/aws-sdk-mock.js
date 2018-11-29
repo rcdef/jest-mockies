@@ -9,6 +9,8 @@ var _cognitoIsp = _interopRequireDefault(require("./cognito-isp"));
 
 var _dynamodb = _interopRequireDefault(require("./dynamodb"));
 
+var _sns = _interopRequireDefault(require("./sns"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -25,8 +27,11 @@ var mockCognitoISPFunctions = _cognitoIsp.default.Mock,
 var mockDynamoDBFunctions = _dynamodb.default.Mock,
     restMockDynamoDB = _objectWithoutProperties(_dynamodb.default, ["Mock"]);
 
-var _default = _objectSpread({}, restMockCognitoISP, restMockDynamoDB, {
-  Mock: _objectSpread({}, mockCognitoISPFunctions, mockDynamoDBFunctions)
+var mockSNSFunctions = _sns.default.Mock,
+    restMockSNS = _objectWithoutProperties(_sns.default, ["Mock"]);
+
+var _default = _objectSpread({}, restMockCognitoISP, restMockDynamoDB, restMockSNS, {
+  Mock: _objectSpread({}, mockCognitoISPFunctions, mockDynamoDBFunctions, mockSNSFunctions)
 });
 
 exports.default = _default;
