@@ -34,90 +34,104 @@ var _default = {
       }
     }
   },
-  DynamoDB: {
-    DocumentClient:
-    /*#__PURE__*/
-    function () {
-      function DocumentClient() {
-        _classCallCheck(this, DocumentClient);
+  DynamoDB:
+  /*#__PURE__*/
+  function () {
+    function DynamoDB() {
+      _classCallCheck(this, DynamoDB);
+    }
+
+    _createClass(DynamoDB, null, [{
+      key: "DocumentClient",
+      get: function get() {
+        return (
+          /*#__PURE__*/
+          function () {
+            function _class() {
+              _classCallCheck(this, _class);
+            }
+
+            _createClass(_class, [{
+              key: "batchGet",
+              value: function batchGet(params) {
+                return {
+                  promise: function promise() {
+                    return mockBatchGet(params);
+                  }
+                };
+              }
+            }, {
+              key: "batchWrite",
+              value: function batchWrite(params) {
+                return {
+                  promise: function promise() {
+                    return mockBatchWrite(params);
+                  }
+                };
+              }
+            }, {
+              key: "delete",
+              value: function _delete(params) {
+                return {
+                  promise: function promise() {
+                    return mockDelete(params);
+                  }
+                };
+              }
+            }, {
+              key: "get",
+              value: function get(params) {
+                return {
+                  promise: function promise() {
+                    return mockGet(params);
+                  }
+                };
+              }
+            }, {
+              key: "put",
+              value: function put(params) {
+                return {
+                  promise: function promise() {
+                    return mockPut(params);
+                  }
+                };
+              }
+            }, {
+              key: "query",
+              value: function query(params) {
+                return {
+                  promise: function promise() {
+                    return mockQuery(params);
+                  }
+                };
+              }
+            }, {
+              key: "scan",
+              value: function scan(params) {
+                return {
+                  promise: function promise() {
+                    return mockScan(params);
+                  }
+                };
+              }
+            }, {
+              key: "update",
+              value: function update(params) {
+                return {
+                  promise: function promise() {
+                    return mockUpdate(params);
+                  }
+                };
+              }
+            }]);
+
+            return _class;
+          }()
+        );
       }
+    }]);
 
-      _createClass(DocumentClient, [{
-        key: "batchGet",
-        value: function batchGet(params) {
-          return {
-            promise: function promise() {
-              return mockBatchGet(params);
-            }
-          };
-        }
-      }, {
-        key: "batchWrite",
-        value: function batchWrite(params) {
-          return {
-            promise: function promise() {
-              return mockBatchWrite(params);
-            }
-          };
-        }
-      }, {
-        key: "delete",
-        value: function _delete(params) {
-          return {
-            promise: function promise() {
-              return mockDelete(params);
-            }
-          };
-        }
-      }, {
-        key: "get",
-        value: function get(params) {
-          return {
-            promise: function promise() {
-              return mockGet(params);
-            }
-          };
-        }
-      }, {
-        key: "put",
-        value: function put(params) {
-          return {
-            promise: function promise() {
-              return mockPut(params);
-            }
-          };
-        }
-      }, {
-        key: "query",
-        value: function query(params) {
-          return {
-            promise: function promise() {
-              return mockQuery(params);
-            }
-          };
-        }
-      }, {
-        key: "scan",
-        value: function scan(params) {
-          return {
-            promise: function promise() {
-              return mockScan(params);
-            }
-          };
-        }
-      }, {
-        key: "update",
-        value: function update(params) {
-          return {
-            promise: function promise() {
-              return mockUpdate(params);
-            }
-          };
-        }
-      }]);
-
-      return DocumentClient;
-    }()
-  }
+    return DynamoDB;
+  }()
 };
 exports.default = _default;

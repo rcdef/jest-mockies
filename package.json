@@ -13,7 +13,6 @@
     "eslint-plugin-jest": "^22.3.0",
     "standard-version": "^4.4.0"
   },
-  "dependencies": {},
   "scripts": {
     "build": "babel ./src -d ./dist",
     "release": "standard-version"

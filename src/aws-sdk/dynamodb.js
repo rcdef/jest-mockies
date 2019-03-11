@@ -23,55 +23,57 @@ export default {
     }
   },
 
-  DynamoDB: {
-    DocumentClient: class {
-      batchGet(params) {
-        return {
-          promise: () => mockBatchGet(params)
-        };
-      }
+  DynamoDB: class {
+    static get DocumentClient() {
+      return class {
+        batchGet(params) {
+          return {
+            promise: () => mockBatchGet(params)
+          };
+        }
 
-      batchWrite(params) {
-        return {
-          promise: () => mockBatchWrite(params)
-        };
-      }
+        batchWrite(params) {
+          return {
+            promise: () => mockBatchWrite(params)
+          };
+        }
 
-      delete(params) {
-        return {
-          promise: () => mockDelete(params)
-        };
-      }
+        delete(params) {
+          return {
+            promise: () => mockDelete(params)
+          };
+        }
 
-      get(params) {
-        return {
-          promise: () => mockGet(params)
-        };
-      }
+        get(params) {
+          return {
+            promise: () => mockGet(params)
+          };
+        }
 
-      put(params) {
-        return {
-          promise: () => mockPut(params)
-        };
-      }
+        put(params) {
+          return {
+            promise: () => mockPut(params)
+          };
+        }
 
-      query(params) {
-        return {
-          promise: () => mockQuery(params)
-        };
-      }
+        query(params) {
+          return {
+            promise: () => mockQuery(params)
+          };
+        }
 
-      scan(params) {
-        return {
-          promise: () => mockScan(params)
-        };
-      }
+        scan(params) {
+          return {
+            promise: () => mockScan(params)
+          };
+        }
 
-      update(params) {
-        return {
-          promise: () => mockUpdate(params)
-        };
-      }
+        update(params) {
+          return {
+            promise: () => mockUpdate(params)
+          };
+        }
+      };
     }
   }
 };
