@@ -6,10 +6,63 @@ const mockPut = jest.fn();
 const mockQuery = jest.fn();
 const mockScan = jest.fn();
 const mockUpdate = jest.fn();
+const mockUpdateTable = jest.fn();
+
+class DocumentClient {
+  batchGet(params) {
+    return {
+      promise: () => mockBatchGet(params)
+    };
+  }
+
+  batchWrite(params) {
+    return {
+      promise: () => mockBatchWrite(params)
+    };
+  }
+
+  delete(params) {
+    return {
+      promise: () => mockDelete(params)
+    };
+  }
+
+  get(params) {
+    return {
+      promise: () => mockGet(params)
+    };
+  }
+
+  put(params) {
+    return {
+      promise: () => mockPut(params)
+    };
+  }
+
+  query(params) {
+    return {
+      promise: () => mockQuery(params)
+    };
+  }
+
+  scan(params) {
+    return {
+      promise: () => mockScan(params)
+    };
+  }
+
+  update(params) {
+    return {
+      promise: () => mockUpdate(params)
+    };
+  }
+}
 
 export default {
   Mock: {
     DynamoDB: {
+      updateTable: mockUpdateTable,
+
       DocumentClient: {
         batchGet: mockBatchGet,
         batchWrite: mockBatchWrite,
@@ -24,56 +77,14 @@ export default {
   },
 
   DynamoDB: class {
-    static get DocumentClient() {
-      return class {
-        batchGet(params) {
-          return {
-            promise: () => mockBatchGet(params)
-          };
-        }
-
-        batchWrite(params) {
-          return {
-            promise: () => mockBatchWrite(params)
-          };
-        }
-
-        delete(params) {
-          return {
-            promise: () => mockDelete(params)
-          };
-        }
-
-        get(params) {
-          return {
-            promise: () => mockGet(params)
-          };
-        }
-
-        put(params) {
-          return {
-            promise: () => mockPut(params)
-          };
-        }
-
-        query(params) {
-          return {
-            promise: () => mockQuery(params)
-          };
-        }
-
-        scan(params) {
-          return {
-            promise: () => mockScan(params)
-          };
-        }
-
-        update(params) {
-          return {
-            promise: () => mockUpdate(params)
-          };
-        }
+    updateTable(params) {
+      return {
+        promise: () => mockUpdateTable(params)
       };
+    }
+
+    static get DocumentClient() {
+      return DocumentClient;
     }
   }
 };
