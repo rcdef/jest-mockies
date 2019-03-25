@@ -1,6 +1,5 @@
 const mockGetObject = jest.fn();
 
-
 export default {
   Mock: {
     S3: {
