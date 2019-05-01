@@ -13,6 +13,10 @@ var _sns = _interopRequireDefault(require("./sns"));
 
 var _sqs = _interopRequireDefault(require("./sqs"));
 
+var _s = _interopRequireDefault(require("./s3"));
+
+var _apiGatewayManagementApi = _interopRequireDefault(require("./api-gateway-management-api"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -35,8 +39,14 @@ var mockSNSFunctions = _sns.default.Mock,
 var mockSQSFunctions = _sqs.default.Mock,
     restMockSQS = _objectWithoutProperties(_sqs.default, ["Mock"]);
 
-var _default = _objectSpread({}, restMockCognitoISP, restMockDynamoDB, restMockSNS, restMockSQS, {
-  Mock: _objectSpread({}, mockCognitoISPFunctions, mockDynamoDBFunctions, mockSNSFunctions, mockSQSFunctions)
+var mockS3Functions = _s.default.Mock,
+    restMockS3 = _objectWithoutProperties(_s.default, ["Mock"]);
+
+var mockApiGatewayManagementApiFunctions = _apiGatewayManagementApi.default.Mock,
+    restMockApiGatewayManagementApi = _objectWithoutProperties(_apiGatewayManagementApi.default, ["Mock"]);
+
+var _default = _objectSpread({}, restMockCognitoISP, restMockDynamoDB, restMockSNS, restMockSQS, restMockS3, restMockApiGatewayManagementApi, {
+  Mock: _objectSpread({}, mockCognitoISPFunctions, mockDynamoDBFunctions, mockSNSFunctions, mockSQSFunctions, mockS3Functions, mockApiGatewayManagementApiFunctions)
 });
 
 exports.default = _default;
