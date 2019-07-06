@@ -17,9 +17,7 @@ export default {
     }
 
     getSignedUrl(params) {
-      return {
-        promise: () => mockGetSignedUrl(params)
-      };
+      return mockGetSignedUrl(params);
     }
   }
 };
