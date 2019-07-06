@@ -39,11 +39,7 @@ var _default = {
     }, {
       key: "getSignedUrl",
       value: function getSignedUrl(params) {
-        return {
-          promise: function promise() {
-            return mockGetSignedUrl(params);
-          }
-        };
+        return mockGetSignedUrl(params);
       }
     }]);
 
