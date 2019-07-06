@@ -12,10 +12,12 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 var mockGetObject = jest.fn();
+var mockGetSignedUrl = jest.fn();
 var _default = {
   Mock: {
     S3: {
-      getObject: mockGetObject
+      getObject: mockGetObject,
+      getSignedUrl: mockGetSignedUrl
     }
   },
   S3:
@@ -31,6 +33,15 @@ var _default = {
         return {
           promise: function promise() {
             return mockGetObject(params);
+          }
+        };
+      }
+    }, {
+      key: "getSignedUrl",
+      value: function getSignedUrl(params) {
+        return {
+          promise: function promise() {
+            return mockGetSignedUrl(params);
           }
         };
       }

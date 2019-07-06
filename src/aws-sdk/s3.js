@@ -1,9 +1,11 @@
 const mockGetObject = jest.fn();
+const mockGetSignedUrl = jest.fn();
 
 export default {
   Mock: {
     S3: {
-      getObject: mockGetObject
+      getObject: mockGetObject,
+      getSignedUrl: mockGetSignedUrl
     }
   },
 
@@ -11,6 +13,12 @@ export default {
     getObject(params) {
       return {
         promise: () => mockGetObject(params)
+      };
+    }
+
+    getSignedUrl(params) {
+      return {
+        promise: () => mockGetSignedUrl(params)
       };
     }
   }
