@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "awsSdkMock", {
   enumerable: true,
   get: function get() {
-    return _awsSdkMock.default;
+    return _awsSdkMock["default"];
   }
 });
 
 var _awsSdkMock = _interopRequireDefault(require("./aws-sdk/aws-sdk-mock"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _cognitoIsp = _interopRequireDefault(require("./cognito-isp"));
 
@@ -17,9 +17,9 @@ var _s = _interopRequireDefault(require("./s3"));
 
 var _apiGatewayManagementApi = _interopRequireDefault(require("./api-gateway-management-api"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { if (i % 2) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } else { Object.defineProperties(target, Object.getOwnPropertyDescriptors(arguments[i])); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -27,26 +27,26 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-var mockCognitoISPFunctions = _cognitoIsp.default.Mock,
-    restMockCognitoISP = _objectWithoutProperties(_cognitoIsp.default, ["Mock"]);
+var mockCognitoISPFunctions = _cognitoIsp["default"].Mock,
+    restMockCognitoISP = _objectWithoutProperties(_cognitoIsp["default"], ["Mock"]);
 
-var mockDynamoDBFunctions = _dynamodb.default.Mock,
-    restMockDynamoDB = _objectWithoutProperties(_dynamodb.default, ["Mock"]);
+var mockDynamoDBFunctions = _dynamodb["default"].Mock,
+    restMockDynamoDB = _objectWithoutProperties(_dynamodb["default"], ["Mock"]);
 
-var mockSNSFunctions = _sns.default.Mock,
-    restMockSNS = _objectWithoutProperties(_sns.default, ["Mock"]);
+var mockSNSFunctions = _sns["default"].Mock,
+    restMockSNS = _objectWithoutProperties(_sns["default"], ["Mock"]);
 
-var mockSQSFunctions = _sqs.default.Mock,
-    restMockSQS = _objectWithoutProperties(_sqs.default, ["Mock"]);
+var mockSQSFunctions = _sqs["default"].Mock,
+    restMockSQS = _objectWithoutProperties(_sqs["default"], ["Mock"]);
 
-var mockS3Functions = _s.default.Mock,
-    restMockS3 = _objectWithoutProperties(_s.default, ["Mock"]);
+var mockS3Functions = _s["default"].Mock,
+    restMockS3 = _objectWithoutProperties(_s["default"], ["Mock"]);
 
-var mockApiGatewayManagementApiFunctions = _apiGatewayManagementApi.default.Mock,
-    restMockApiGatewayManagementApi = _objectWithoutProperties(_apiGatewayManagementApi.default, ["Mock"]);
+var mockApiGatewayManagementApiFunctions = _apiGatewayManagementApi["default"].Mock,
+    restMockApiGatewayManagementApi = _objectWithoutProperties(_apiGatewayManagementApi["default"], ["Mock"]);
 
-var _default = _objectSpread({}, restMockCognitoISP, restMockDynamoDB, restMockSNS, restMockSQS, restMockS3, restMockApiGatewayManagementApi, {
-  Mock: _objectSpread({}, mockCognitoISPFunctions, mockDynamoDBFunctions, mockSNSFunctions, mockSQSFunctions, mockS3Functions, mockApiGatewayManagementApiFunctions)
+var _default = _objectSpread({}, restMockCognitoISP, {}, restMockDynamoDB, {}, restMockSNS, {}, restMockSQS, {}, restMockS3, {}, restMockApiGatewayManagementApi, {
+  Mock: _objectSpread({}, mockCognitoISPFunctions, {}, mockDynamoDBFunctions, {}, mockSNSFunctions, {}, mockSQSFunctions, {}, mockS3Functions, {}, mockApiGatewayManagementApiFunctions)
 });
 
-exports.default = _default;
+exports["default"] = _default;

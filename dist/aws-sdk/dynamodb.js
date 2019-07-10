@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -112,7 +112,7 @@ var _default = {
       DocumentClient: {
         batchGet: mockBatchGet,
         batchWrite: mockBatchWrite,
-        delete: mockDelete,
+        "delete": mockDelete,
         get: mockGet,
         put: mockPut,
         query: mockQuery,
@@ -147,4 +147,4 @@ var _default = {
     return DynamoDB;
   }()
 };
-exports.default = _default;
+exports["default"] = _default;
