@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/rcdef/jest-mockies/compare/v1.1.6...v1.2.0) (2019-07-10)
+
+
+### Bug Fixes
+
+* remove package-lock.json ([046bbf9](https://github.com/rcdef/jest-mockies/commit/046bbf9))
+
+
+### Features
+
+* mock s3 putobject ([5a86c1e](https://github.com/rcdef/jest-mockies/commit/5a86c1e))
+
+
+
 <a name="1.1.6"></a>
 ## [1.1.6](https://github.com/rcdef/jest-mockies/compare/v1.1.5...v1.1.6) (2019-07-08)
 
